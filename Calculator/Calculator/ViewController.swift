@@ -8,14 +8,23 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var numOnScreen:Double = 0
 
+    @IBAction func numbers(_ sender: UIButton) {
+        label.text = label.text! + String(sender.tag-1)
+        
+    }
+    @IBOutlet weak var label: UILabel!
+    
+    @IBAction func clear(_ sender: UIButton) {
+        label.text = ""
+    }
+    @IBAction func Delete(_ sender: UIButton) {
+        label.text?.removeLast()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myView = UIView()
-        myView.frame = CGRect(x: 0, y: 1056, width: 1179, height: 1500)
         // Do any additional setup after loading the view.
-        let board = Board(frame:self.view.bounds)
-        self.view.addSubview(board)
     }
 
 
